@@ -1,0 +1,31 @@
+{
+  "name": "staff_list_restapi",
+  "version": "1.0.0",
+  "description": "A RESTAPI for small application",
+  "main": "index.mjs",
+  "scripts": {
+    "start": "node index.mjs",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ridoansaleh/staff_list_restapi.git"
+  },
+  "keywords": [
+    "node",
+    "node.js",
+    "mongodb"
+  ],
+  "author": "Ridoan Saleh Nasution",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ridoansaleh/staff_list_restapi/issues"
+  },
+  "homepage": "https://github.com/ridoansaleh/staff_list_restapi#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.11.9"
+  }
+}
