@@ -2,9 +2,9 @@
   "name": "staff_list_restapi",
   "version": "1.0.0",
   "description": "A RESTAPI for small application",
-  "main": "index.mjs",
+  "main": "index.js",
   "scripts": {
-    "start": "node index.mjs",
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -24,8 +24,10 @@
   "homepage": "https://github.com/ridoansaleh/staff_list_restapi#readme",
   "dependencies": {
     "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.11.9"
-  }
+  },
+  "type": "module"
 }
