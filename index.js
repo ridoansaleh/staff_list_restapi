@@ -25,6 +25,8 @@ connection.on("error", () => {
 
 app.post("/registration", StaffController.insertCompany);
 
+app.post("/login", StaffController.login);
+
 app.listen(PORT, () => {
   console.log("Your RESTAPI server is listening at port %s", PORT);
 });
