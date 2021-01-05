@@ -1,7 +1,8 @@
 import express from "express";
 import mongoose from "mongoose";
 import bodyParser from "body-parser";
-import * as StaffController from "./company/company.controller.js";
+import * as CompanyController from "./company/company.controller.js";
+import * as StaffController from "./staff/staff.controller.js";
 import { DATABASE_URI, PORT } from "./constant.js";
 
 const app = express();
@@ -23,9 +24,11 @@ connection.on("error", () => {
   console.error("MongoDB database connection is failed");
 });
 
-app.post("/registration", StaffController.insertCompany);
+app.post("/registration", CompanyController.insertCompany);
 
-app.post("/login", StaffController.login);
+app.post("/login", CompanyController.login);
+
+app.post("/staff", StaffController.addStaff);
 
 app.listen(PORT, () => {
   console.log("Your RESTAPI server is listening at port %s", PORT);
