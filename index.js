@@ -12,6 +12,7 @@ app.use(bodyParser.json());
 mongoose.connect(DATABASE_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
+  useFindAndModify: false,
 });
 
 const connection = mongoose.connection;
@@ -31,6 +32,8 @@ app.post("/login", CompanyController.login);
 app.get("/all_staffs", StaffController.getAllStaffs);
 
 app.post("/staff", StaffController.addStaff);
+
+app.put("/staff/:id", StaffController.editStaff);
 
 app.listen(PORT, () => {
   console.log("Your RESTAPI server is listening at port %s", PORT);

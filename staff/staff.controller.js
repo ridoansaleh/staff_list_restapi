@@ -45,4 +45,20 @@ const getAllStaffs = [
   },
 ];
 
-export { addStaff, getAllStaffs };
+const editStaff = [
+  isJwtValid,
+  async (req, res) => {
+    const staff = await Staff.findByIdAndUpdate(req.params.id, req.body);
+    const result = await staff.save();
+    try {
+      res.status(201).send({
+        message: `Staff with id=${result._id} successfully updated`,
+        status: "Success",
+      });
+    } catch (_) {
+      res.status(500).send({ text: "Internal Server Error", status: "Error" });
+    }
+  },
+];
+
+export { addStaff, getAllStaffs, editStaff };
