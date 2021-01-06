@@ -33,4 +33,16 @@ const addStaff = [
   },
 ];
 
-export { addStaff };
+const getAllStaffs = [
+  isJwtValid,
+  async (_, res) => {
+    const staffs = await Staff.find({});
+    try {
+      res.status(201).send(staffs);
+    } catch (_) {
+      res.status(500).send({ text: "Internal Server Error", status: "Error" });
+    }
+  },
+];
+
+export { addStaff, getAllStaffs };
