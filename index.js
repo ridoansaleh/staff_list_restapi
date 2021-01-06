@@ -28,6 +28,8 @@ app.post("/registration", CompanyController.insertCompany);
 
 app.post("/login", CompanyController.login);
 
+app.get("/all_staffs", StaffController.getAllStaffs);
+
 app.post("/staff", StaffController.addStaff);
 
 app.listen(PORT, () => {
