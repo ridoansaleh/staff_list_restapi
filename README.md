@@ -24,8 +24,8 @@ All endpoints deployed are as shown in the table:
 | `POST`      | https://blooming-sierra-10191.herokuapp.com/login        |               |
 | `GET`       | https://blooming-sierra-10191.herokuapp.com/all_staffs   | require token |
 | `POST`      | https://blooming-sierra-10191.herokuapp.com/staff        | require token |
-| `PUT`       | https://blooming-sierra-10191.herokuapp.com/staff:id     | require token |
-| `DELETE`    | https://blooming-sierra-10191.herokuapp.com/staff:id     | require token |
+| `PUT`       | https://blooming-sierra-10191.herokuapp.com/staff/:id     | require token |
+| `DELETE`    | https://blooming-sierra-10191.herokuapp.com/staff/:id     | require token |
 
 Notes:
 
