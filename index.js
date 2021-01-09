@@ -32,6 +32,7 @@ mongoose.connect(DATABASE_URI, {
 });
 
 console.log("DATABASE_URI : ", DATABASE_URI);
+console.log("PORT : ", PORT);
 
 const connection = mongoose.connection;
 
