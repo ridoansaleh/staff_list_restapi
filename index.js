@@ -35,22 +35,22 @@ const connection = mongoose.connection;
 
 connection.once("open", () => {
   console.log("MongoDB database connection established successfully");
+
+  app.post("/registration", CompanyController.insertCompany);
+  app.post("/login", CompanyController.login);
+  app.get("/test", (req, res) => {
+    res.status(200).send({ name: "Ridoan Saleh Nasution" });
+  });
+  app.get("/all_staffs", StaffController.getAllStaffs);
+  app.post("/staff", StaffController.addStaff);
+  app.put("/staff/:id", StaffController.editStaff);
+  app.delete("/staff/:id", StaffController.deleteStaff);
+
+  app.listen(PORT, () => {
+    console.log("Your RESTAPI server is listening at port %s", PORT);
+  });
 });
 
 connection.on("error", () => {
   console.error("MongoDB database connection is failed");
-});
-
-app.post("/registration", CompanyController.insertCompany);
-app.post("/login", CompanyController.login);
-app.get("/test", (req, res) => {
-  res.status(200).send({ name: "Ridoan Saleh Nasution" });
-});
-app.get("/all_staffs", StaffController.getAllStaffs);
-app.post("/staff", StaffController.addStaff);
-app.put("/staff/:id", StaffController.editStaff);
-app.delete("/staff/:id", StaffController.deleteStaff);
-
-app.listen(PORT, () => {
-  console.log("Your RESTAPI server is listening at port %s", PORT);
 });
