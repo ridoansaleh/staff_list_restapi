@@ -34,19 +34,25 @@ const insertCompany = (req, res) => {
 };
 
 const login = async (req, res) => {
+  let errors = [];
+  errors.push("req.body => " + JSON.stringify(req.body)); // here [1]
   Company.find({ admin_username: req.body.username })
     .then((user) => {
+      errors.push(user); // here [2]
       if (user.length > 0) {
         let currentPassword = user[0].admin_password.split("$");
+        errors.push("currentPassword => " + currentPassword); // here [3]
         let salt = currentPassword[0];
         let hash = crypto
           .createHmac("sha512", salt)
           .update(req.body.password)
           .digest("base64");
+        errors.push("hash => " + hash); // here [4]
         if (hash === currentPassword[1]) {
           const token = jwt.sign({ ...user[0] }, JWT_SECRET, {
             expiresIn: "1h",
           });
+          errors.push("token => " + token); // here [5]
           res.status(201).send({ token });
         } else {
           res.status(400).send({ status: "Username or password is invalid" });
@@ -56,7 +62,11 @@ const login = async (req, res) => {
       }
     })
     .catch((_) => {
-      res.status(500).send({ text: "Internal Server Error", status: "Error" });
+      res.status(500).send({
+        text: "Internal Server Error",
+        status: "Error",
+        tracking: errors,
+      });
     });
 };
 
