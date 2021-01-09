@@ -16,7 +16,7 @@ const isJwtValid = async (req, res, next) => {
       res.status(403).send({ message: "Forbidden Resource", status: "Error" });
     }
   } else {
-    res.status(401).send({ message: "Unauthorize user", status: "Error" });
+    res.status(401).send({ message: "Unauthorized user", status: "Error" });
   }
 };
 
