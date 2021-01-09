@@ -31,6 +31,8 @@ mongoose.connect(DATABASE_URI, {
   useFindAndModify: false,
 });
 
+console.log("DATABASE_URI : ", DATABASE_URI);
+
 const connection = mongoose.connection;
 
 connection.once("open", () => {
