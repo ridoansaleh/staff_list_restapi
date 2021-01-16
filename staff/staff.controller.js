@@ -22,8 +22,10 @@ const isJwtValid = async (req, res, next) => {
 
 const getAllStaffs = [
   isJwtValid,
-  async (_, res) => {
-    const staffs = await Staff.find({});
+  async (req, res) => {
+    const staffs = await Staff.find({
+      company_id: req.params.companyID,
+    });
     try {
       res.status(201).send(staffs);
     } catch (_) {

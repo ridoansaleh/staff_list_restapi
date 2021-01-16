@@ -18,14 +18,14 @@ Hosting: ~~AWS (Lets try this)~~ **Heroku**
 
 All endpoints deployed are as shown in the table:
 
-| HTTP Method | Endpoint                                                 |  Description  |
-| ----------- | -------------------------------------------------------- | :-----------: |
-| `POST`      | https://blooming-sierra-10191.herokuapp.com/registration |               |
-| `POST`      | https://blooming-sierra-10191.herokuapp.com/login        |               |
-| `GET`       | https://blooming-sierra-10191.herokuapp.com/all_staffs   | require token |
-| `POST`      | https://blooming-sierra-10191.herokuapp.com/staff        | require token |
-| `PUT`       | https://blooming-sierra-10191.herokuapp.com/staff/:id     | require token |
-| `DELETE`    | https://blooming-sierra-10191.herokuapp.com/staff/:id     | require token |
+| HTTP Method | Endpoint                                                          |  Description  |
+| ----------- | ----------------------------------------------------------------- | :-----------: |
+| `POST`      | https://blooming-sierra-10191.herokuapp.com/registration          |               |
+| `POST`      | https://blooming-sierra-10191.herokuapp.com/login                 |               |
+| `GET`       | https://blooming-sierra-10191.herokuapp.com/all_staffs/:companyID | require token |
+| `POST`      | https://blooming-sierra-10191.herokuapp.com/staff                 | require token |
+| `PUT`       | https://blooming-sierra-10191.herokuapp.com/staff/:id             | require token |
+| `DELETE`    | https://blooming-sierra-10191.herokuapp.com/staff/:id             | require token |
 
 Notes:
 
@@ -54,6 +54,7 @@ Notes:
 | Field           |  Type  |     Explanation      |
 | --------------- | :----: | :------------------: |
 | `_id`           | string |    auto generated    |
+| `company_id`    | string |     Foreign Key      |
 | name            | string |                      |
 | gender          | string |   (male or female)   |
 | religion        | string |                      |
