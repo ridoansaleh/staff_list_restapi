@@ -38,7 +38,7 @@ connection.once("open", () => {
 
   app.post("/registration", CompanyController.insertCompany);
   app.post("/login", CompanyController.login);
-  app.get("/all_staffs", StaffController.getAllStaffs);
+  app.get("/all_staffs/:companyID", StaffController.getAllStaffs);
   app.post("/staff", StaffController.addStaff);
   app.put("/staff/:id", StaffController.editStaff);
   app.delete("/staff/:id", StaffController.deleteStaff);

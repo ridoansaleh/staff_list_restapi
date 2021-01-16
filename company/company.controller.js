@@ -47,7 +47,10 @@ const login = async (req, res) => {
           const token = jwt.sign({ ...user[0] }, JWT_SECRET, {
             expiresIn: "1h",
           });
-          res.status(201).send({ token });
+          res.status(201).send({
+            token,
+            company_id: user[0]._id,
+          });
         } else {
           res.status(400).send({ status: "Username or password is invalid" });
         }
