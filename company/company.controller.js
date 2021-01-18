@@ -50,6 +50,7 @@ const login = async (req, res) => {
           res.status(201).send({
             token,
             company_id: user[0]._id,
+            company_name: user[0].company_name,
           });
         } else {
           res.status(400).send({ status: "Username or password is invalid" });
